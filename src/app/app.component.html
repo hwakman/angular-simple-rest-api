@@ -24,7 +24,7 @@
 
     <div class="row col-lg-9 p-3 rounded mb-3 d-flex justify-content-start align-items-start  bg-light rounded">
       <span *ngFor="let data of stock" class="d-flex p-3 col-lg-4 mb-3 justify-content-between align-items-center">
-            <span>{{data}}</span>
+            <span>{{data.name}}</span>
             <span>
                 <button class="btn btn-warning mr-1" (click)="editState(data)">EDIT</button>
                 <button class="btn btn-danger" (click)="delState(data)">DEL</button>
@@ -33,26 +33,39 @@
     </div>
   </div>
 
-  <div class="row bg-light mt-3 mb-3 p-3 rounded" id="exportTable">
-      <span class="d-flex justify-content-center mb-3">
-          <button class="btn btn-outline-primary mr-1" (click)="exportPdf()" id="printBTN">Print</button>
-      </span>
-      <table class="table table-striped">
-        <thead class="thead-dark">
+  <div class="row bg-white mt-3 mb-3 p-3 rounded" id="exportTable">
+      <div class="mb-3 col-12 form-inline justify-content-end" id="printHead">
+          <span>
+              <button class="btn btn-outline-primary mr-1" (click)="exportPdf()" id="printBTN">Print</button>
+              <button class="btn btn-outline-info mr-1" (click)="exportTxt()" id="saveBTN">Save</button>
+          </span>
+      </div>
+      <table class="table table-striped" id="printTable">
+        <thead class="thead-dark rounded-top">
           <tr>
-            <th style="width:15%">No</th>
-            <th class="d-flex justify-content-between align-items-center">
-              <span>Name</span>
+            <th>ID</th>
+            <th>Name</th>
+            <th>
+              Code
             </th>
           </tr>
         </thead>
 
         <tbody>
-          <tr *ngFor="let data of stock">
-            <td>{{data}}</td>
-            <td>{{data}}</td>
+          <tr *ngFor="let data of stockTable">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.code}}</td>
           </tr>
         </tbody>
+
+        <tfoot>
+          <tr class="table-light text-secondary notShow" id="printFoot">
+            <td colspan="3">
+              <small>This API create by Chayoud</small>
+            </td>
+          </tr>
+        </tfoot>
       </table>
   </div>
 </div>
