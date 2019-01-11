@@ -1,3 +1,4 @@
 ## Project [Simple Rest]
-- $ npm i
-- $ ng serve --open
+- `$ npm install`
+- `$ ng serve --open`
+- Have fun !!
